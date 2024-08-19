@@ -7,7 +7,7 @@ import { AddressStorageTab } from "./AddressStorageTab";
 import { PaginationButton } from "./PaginationButton";
 import { TransactionsTable } from "./TransactionsTable";
 import { createPublicClient, http } from "viem";
-import { filecoinCalibration } from "viem/chains";
+import { opBNBTestnet } from "viem/chains";
 import { useFetchBlocks } from "~~/hooks/scaffold-eth";
 
 type AddressCodeTabProps = {
@@ -21,7 +21,7 @@ type PageProps = {
 };
 
 const publicClient = createPublicClient({
-  chain: filecoinCalibration,
+  chain: opBNBTestnet,
   transport: http(),
 });
 

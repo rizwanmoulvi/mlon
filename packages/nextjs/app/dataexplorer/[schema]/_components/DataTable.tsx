@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Abi, createPublicClient, fromHex, getContract, http } from "viem";
-import { filecoinCalibration } from "viem/chains";
+import { opBNBTestnet } from "viem/chains";
 import deployedContracts from "~~/contracts/deployedContracts";
 
 type DataTableProps = {
@@ -13,15 +13,15 @@ export const DataTable = ({ schema }: DataTableProps) => {
 
   useEffect(() => {
     const publicClient = createPublicClient({
-      chain: filecoinCalibration,
+      chain: opBNBTestnet,
       transport: http(),
     });
 
     const getSchemaData = async () => {
       try {
         const userAnalyticsContractData = getContract({
-          abi: deployedContracts[314159].DataLayer.abi as Abi,
-          address: deployedContracts[314159].DataLayer.address,
+          abi: deployedContracts[5611].DataLayer.abi as Abi,
+          address: deployedContracts[5611].DataLayer.address,
           client: { public: publicClient },
         });
 

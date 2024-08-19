@@ -39,15 +39,11 @@ export const CreateSchema = ({ odl }: CreateSchemaProps) => {
           }),
         );
       });
-      console.log([
-        toHex(
-          toBytes(schemaName, {
-            size: 32,
-          }),
-        ),
-        columnArray,
-        Number(selectedCategory),
-      ]);
+      console.log("Schema Name:", schemaName);
+      console.log("Column Array:", columnArray);
+      console.log("Selected Category:", selectedCategory);
+      console.log("Account Address:", account.address);
+
       const tx = await odl?.write.addSchema(
         [
           toHex(
@@ -66,7 +62,7 @@ export const CreateSchema = ({ odl }: CreateSchemaProps) => {
     } catch (e) {
       setLoading(false);
       setTxErrored(true);
-      console.log(e);
+      console.error("Transaction Error:", e);
     }
   }, [account.address, col, odl?.write, schemaName, selectedCategory, totalCol]);
 

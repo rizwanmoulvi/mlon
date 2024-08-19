@@ -5,6 +5,2168 @@
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
+  97: {
+    AnomalyDetection: {
+      address: "0x602a0a7D8759040D70cD5bb9A95Dd0649E99eEA1",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract DataLayer",
+              name: "_dataLayer",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256",
+              name: "threshold",
+              type: "uint256",
+            },
+          ],
+          name: "getAnomalyDetection",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256[][]",
+              name: "analyticsData",
+              type: "uint256[][]",
+            },
+            {
+              internalType: "uint256",
+              name: "threshold",
+              type: "uint256",
+            },
+          ],
+          name: "getAnomalyDetectionOffChainData",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    DataLayer: {
+      address: "0xa0258F0A0835A82163D855aD239C0Da8b304c0b3",
+      abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "user",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "provider",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "category",
+              type: "uint256",
+            },
+          ],
+          name: "NewAnalytics",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "previousOwner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "OwnershipTransferred",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address payable",
+              name: "userAddress",
+              type: "address",
+            },
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "columns",
+              type: "bytes32[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "data",
+              type: "uint256[]",
+            },
+          ],
+          name: "addAnalytics",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "columns",
+              type: "bytes32[]",
+            },
+            {
+              internalType: "enum DataLayer.Category",
+              name: "category",
+              type: "uint8",
+            },
+          ],
+          name: "addSchema",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+          ],
+          name: "addUser",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "addressToId",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "consumerCredits",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "dappAnalytics",
+          outputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "enum DataLayer.Category",
+              name: "schemaCategory",
+              type: "uint8",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getAllSchemas",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "bytes32",
+                  name: "schemaName",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "bytes32[]",
+                  name: "columns",
+                  type: "bytes32[]",
+                },
+                {
+                  internalType: "enum DataLayer.Category",
+                  name: "schemaCategory",
+                  type: "uint8",
+                },
+                {
+                  internalType: "uint256",
+                  name: "totalRecords",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct DataLayer.SchemaDetails[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+          ],
+          name: "getAnalyticsDataBySchemaName",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+          ],
+          name: "getColumnsOfSchema",
+          outputs: [
+            {
+              internalType: "bytes32[]",
+              name: "",
+              type: "bytes32[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+          ],
+          name: "getSchemaAddressToId",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256",
+              name: "userId",
+              type: "uint256",
+            },
+          ],
+          name: "getSchemaIdToAddress",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getUserActivityMatrix",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "idToAddress",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "latestIndex",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "renounceOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          name: "schemaIndex",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalCategories",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "transferOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address payable",
+              name: "userAddress",
+              type: "address",
+            },
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "columns",
+              type: "bytes32[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "data",
+              type: "uint256[]",
+            },
+          ],
+          name: "updateAnalytics",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "newReward",
+              type: "uint256",
+            },
+          ],
+          name: "updateUserReward",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userActivityMatrix",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "userRewardPerDatapoint",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
+      ],
+      inheritedFunctions: {
+        owner: "@openzeppelin/contracts/access/Ownable.sol",
+        renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+        transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+      },
+    },
+    KNN: {
+      address: "0xd039E5f0B82738Fb53D62Dd391Efbbc10d57A57D",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract DataLayer",
+              name: "_dataLayer",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256[]",
+              name: "row",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint64",
+              name: "k",
+              type: "uint64",
+            },
+            {
+              internalType: "enum KNN.Distance",
+              name: "distance",
+              type: "uint8",
+            },
+          ],
+          name: "getKNN",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256[][]",
+              name: "analyticsData",
+              type: "uint256[][]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "row",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint64",
+              name: "k",
+              type: "uint64",
+            },
+            {
+              internalType: "enum KNN.Distance",
+              name: "distance",
+              type: "uint8",
+            },
+          ],
+          name: "getKNNOffChainData",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+            {
+              internalType: "uint64",
+              name: "k",
+              type: "uint64",
+            },
+          ],
+          name: "getRecommendedSimilarUsers",
+          outputs: [
+            {
+              internalType: "address[][]",
+              name: "",
+              type: "address[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "userIndex",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256[][]",
+              name: "similarityMatrix",
+              type: "uint256[][]",
+            },
+            {
+              internalType: "uint64",
+              name: "k",
+              type: "uint64",
+            },
+          ],
+          name: "recommend",
+          outputs: [
+            {
+              internalType: "address[][]",
+              name: "",
+              type: "address[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalCategories",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userActivityMatrix",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    LinearRegression: {
+      address: "0x1e77cdfB592264aa22697965f23076091019F4Bf",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract DataLayer",
+              name: "_dataLayer",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "X",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "y",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "fit",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256[]",
+              name: "trainingColIndices",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint256",
+              name: "labelColIndex",
+              type: "uint256",
+            },
+            {
+              internalType: "int256[][]",
+              name: "testData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "getLinearRegression",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "analyticsData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "labels",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256[][]",
+              name: "testData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "getLinearRegressionOffChainData",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "X",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+            {
+              internalType: "int256[]",
+              name: "weights",
+              type: "int256[]",
+            },
+          ],
+          name: "predict",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    LogisticRegression: {
+      address: "0xB9672Bb2072D1ed1644343344d9B963b2a4f4d67",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract DataLayer",
+              name: "_dataLayer",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "X",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "y",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "fit",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256[]",
+              name: "trainingColIndices",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint256",
+              name: "labelColIndex",
+              type: "uint256",
+            },
+            {
+              internalType: "int256[][]",
+              name: "testData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "getLogisticRegression",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "analyticsData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "labels",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256[][]",
+              name: "testData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "getLogisticRegressionOffChainData",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "X",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "weights",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "predict",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+  5611: {
+    AnomalyDetection: {
+      address: "0x30F8Aca0d1d7776200d9faD39B7cFe58A228D723",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract DataLayer",
+              name: "_dataLayer",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256",
+              name: "threshold",
+              type: "uint256",
+            },
+          ],
+          name: "getAnomalyDetection",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256[][]",
+              name: "analyticsData",
+              type: "uint256[][]",
+            },
+            {
+              internalType: "uint256",
+              name: "threshold",
+              type: "uint256",
+            },
+          ],
+          name: "getAnomalyDetectionOffChainData",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    DataLayer: {
+      address: "0x1FF077B9f023CA6FDE5d299B7ab758E6f93B5D68",
+      abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "user",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "provider",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "category",
+              type: "uint256",
+            },
+          ],
+          name: "NewAnalytics",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "previousOwner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "OwnershipTransferred",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "columns",
+              type: "bytes32[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "data",
+              type: "uint256[]",
+            },
+          ],
+          name: "addAnalytics",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "columns",
+              type: "bytes32[]",
+            },
+            {
+              internalType: "enum DataLayer.Category",
+              name: "category",
+              type: "uint8",
+            },
+          ],
+          name: "addSchema",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+          ],
+          name: "addUser",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "addressToId",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "consumerCredits",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "dappAnalytics",
+          outputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "enum DataLayer.Category",
+              name: "schemaCategory",
+              type: "uint8",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getAllSchemas",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "bytes32",
+                  name: "schemaName",
+                  type: "bytes32",
+                },
+                {
+                  internalType: "bytes32[]",
+                  name: "columns",
+                  type: "bytes32[]",
+                },
+                {
+                  internalType: "enum DataLayer.Category",
+                  name: "schemaCategory",
+                  type: "uint8",
+                },
+                {
+                  internalType: "uint256",
+                  name: "totalRecords",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct DataLayer.SchemaDetails[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+          ],
+          name: "getAnalyticsDataBySchemaName",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+          ],
+          name: "getColumnsOfSchema",
+          outputs: [
+            {
+              internalType: "bytes32[]",
+              name: "",
+              type: "bytes32[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+          ],
+          name: "getSchemaAddressToId",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256",
+              name: "userId",
+              type: "uint256",
+            },
+          ],
+          name: "getSchemaIdToAddress",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getUserActivityMatrix",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "idToAddress",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "latestIndex",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "renounceOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          name: "schemaIndex",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalCategories",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "transferOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "bytes32[]",
+              name: "columns",
+              type: "bytes32[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "data",
+              type: "uint256[]",
+            },
+          ],
+          name: "updateAnalytics",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userActivityMatrix",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {
+        owner: "@openzeppelin/contracts/access/Ownable.sol",
+        renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+        transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
+      },
+    },
+    KNN: {
+      address: "0xa78e282B680E1af5709df19DEd37176ff08cc50e",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract DataLayer",
+              name: "_dataLayer",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256[]",
+              name: "row",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint64",
+              name: "k",
+              type: "uint64",
+            },
+            {
+              internalType: "enum KNN.Distance",
+              name: "distance",
+              type: "uint8",
+            },
+          ],
+          name: "getKNN",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256[][]",
+              name: "analyticsData",
+              type: "uint256[][]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "row",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint64",
+              name: "k",
+              type: "uint64",
+            },
+            {
+              internalType: "enum KNN.Distance",
+              name: "distance",
+              type: "uint8",
+            },
+          ],
+          name: "getKNNOffChainData",
+          outputs: [
+            {
+              internalType: "uint256[][]",
+              name: "",
+              type: "uint256[][]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+            {
+              internalType: "uint64",
+              name: "k",
+              type: "uint64",
+            },
+          ],
+          name: "getRecommendedSimilarUsers",
+          outputs: [
+            {
+              internalType: "address[][]",
+              name: "",
+              type: "address[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "userIndex",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256[][]",
+              name: "similarityMatrix",
+              type: "uint256[][]",
+            },
+            {
+              internalType: "uint64",
+              name: "k",
+              type: "uint64",
+            },
+          ],
+          name: "recommend",
+          outputs: [
+            {
+              internalType: "address[][]",
+              name: "",
+              type: "address[][]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalCategories",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userActivityMatrix",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    LinearRegression: {
+      address: "0x65caDEed7CeE4bB71fDF72Fd1feEFd134fD6E292",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract DataLayer",
+              name: "_dataLayer",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "X",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "y",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "fit",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256[]",
+              name: "trainingColIndices",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint256",
+              name: "labelColIndex",
+              type: "uint256",
+            },
+            {
+              internalType: "int256[][]",
+              name: "testData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "getLinearRegression",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "analyticsData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "labels",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256[][]",
+              name: "testData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "getLinearRegressionOffChainData",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "X",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+            {
+              internalType: "int256[]",
+              name: "weights",
+              type: "int256[]",
+            },
+          ],
+          name: "predict",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    LogisticRegression: {
+      address: "0xAb4Cb007B92bF56440609383f88Dbb4Fd48b6acB",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract DataLayer",
+              name: "_dataLayer",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "X",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "y",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "fit",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "bytes32",
+              name: "schemaName",
+              type: "bytes32",
+            },
+            {
+              internalType: "uint256[]",
+              name: "trainingColIndices",
+              type: "uint256[]",
+            },
+            {
+              internalType: "uint256",
+              name: "labelColIndex",
+              type: "uint256",
+            },
+            {
+              internalType: "int256[][]",
+              name: "testData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "getLogisticRegression",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "analyticsData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "labels",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256[][]",
+              name: "testData",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256",
+              name: "learningRate",
+              type: "int256",
+            },
+            {
+              internalType: "uint256",
+              name: "iterations",
+              type: "uint256",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "getLogisticRegressionOffChainData",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "int256[][]",
+              name: "X",
+              type: "int256[][]",
+            },
+            {
+              internalType: "int256[]",
+              name: "weights",
+              type: "int256[]",
+            },
+            {
+              internalType: "int256",
+              name: "bias",
+              type: "int256",
+            },
+          ],
+          name: "predict",
+          outputs: [
+            {
+              internalType: "int256[]",
+              name: "",
+              type: "int256[]",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
   31337: {
     AnomalyDetection: {
       address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
@@ -745,7 +2907,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LinearRegression: {
-      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      address: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
       abi: [
         {
           inputs: [
@@ -923,1103 +3085,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     LogisticRegression: {
-      address: "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "contract DataLayer",
-              name: "_dataLayer",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [
-            {
-              internalType: "int256[][]",
-              name: "X",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256[]",
-              name: "y",
-              type: "int256[]",
-            },
-            {
-              internalType: "int256",
-              name: "learningRate",
-              type: "int256",
-            },
-            {
-              internalType: "uint256",
-              name: "iterations",
-              type: "uint256",
-            },
-            {
-              internalType: "int256",
-              name: "bias",
-              type: "int256",
-            },
-          ],
-          name: "fit",
-          outputs: [
-            {
-              internalType: "int256[]",
-              name: "",
-              type: "int256[]",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "uint256[]",
-              name: "trainingColIndices",
-              type: "uint256[]",
-            },
-            {
-              internalType: "uint256",
-              name: "labelColIndex",
-              type: "uint256",
-            },
-            {
-              internalType: "int256[][]",
-              name: "testData",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256",
-              name: "learningRate",
-              type: "int256",
-            },
-            {
-              internalType: "uint256",
-              name: "iterations",
-              type: "uint256",
-            },
-            {
-              internalType: "int256",
-              name: "bias",
-              type: "int256",
-            },
-          ],
-          name: "getLogisticRegression",
-          outputs: [
-            {
-              internalType: "int256[]",
-              name: "",
-              type: "int256[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "int256[][]",
-              name: "analyticsData",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256[]",
-              name: "labels",
-              type: "int256[]",
-            },
-            {
-              internalType: "int256[][]",
-              name: "testData",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256",
-              name: "learningRate",
-              type: "int256",
-            },
-            {
-              internalType: "uint256",
-              name: "iterations",
-              type: "uint256",
-            },
-            {
-              internalType: "int256",
-              name: "bias",
-              type: "int256",
-            },
-          ],
-          name: "getLogisticRegressionOffChainData",
-          outputs: [
-            {
-              internalType: "int256[]",
-              name: "",
-              type: "int256[]",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "int256[][]",
-              name: "X",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256[]",
-              name: "weights",
-              type: "int256[]",
-            },
-            {
-              internalType: "int256",
-              name: "bias",
-              type: "int256",
-            },
-          ],
-          name: "predict",
-          outputs: [
-            {
-              internalType: "int256[]",
-              name: "",
-              type: "int256[]",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-  },
-  314159: {
-    AnomalyDetection: {
-      address: "0x087d73aB8db7152DDea768CBd8c3C1d89476fD1c",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "contract DataLayer",
-              name: "_dataLayer",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "uint256",
-              name: "threshold",
-              type: "uint256",
-            },
-          ],
-          name: "getAnomalyDetection",
-          outputs: [
-            {
-              internalType: "uint256[][]",
-              name: "",
-              type: "uint256[][]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256[][]",
-              name: "analyticsData",
-              type: "uint256[][]",
-            },
-            {
-              internalType: "uint256",
-              name: "threshold",
-              type: "uint256",
-            },
-          ],
-          name: "getAnomalyDetectionOffChainData",
-          outputs: [
-            {
-              internalType: "uint256[][]",
-              name: "",
-              type: "uint256[][]",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    DataLayer: {
-      address: "0xFD905BD593fD603F4309CB686f9a11DC881483e1",
-      abi: [
-        {
-          inputs: [],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: false,
-              internalType: "address",
-              name: "user",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "address",
-              name: "provider",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "category",
-              type: "uint256",
-            },
-          ],
-          name: "NewAnalytics",
-          type: "event",
-        },
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: true,
-              internalType: "address",
-              name: "previousOwner",
-              type: "address",
-            },
-            {
-              indexed: true,
-              internalType: "address",
-              name: "newOwner",
-              type: "address",
-            },
-          ],
-          name: "OwnershipTransferred",
-          type: "event",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address payable",
-              name: "userAddress",
-              type: "address",
-            },
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "bytes32[]",
-              name: "columns",
-              type: "bytes32[]",
-            },
-            {
-              internalType: "uint256[]",
-              name: "data",
-              type: "uint256[]",
-            },
-          ],
-          name: "addAnalytics",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "bytes32[]",
-              name: "columns",
-              type: "bytes32[]",
-            },
-            {
-              internalType: "enum DataLayer.Category",
-              name: "category",
-              type: "uint8",
-            },
-          ],
-          name: "addSchema",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "userAddress",
-              type: "address",
-            },
-          ],
-          name: "addUser",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "addressToId",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "consumerCredits",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "dappAnalytics",
-          outputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "enum DataLayer.Category",
-              name: "schemaCategory",
-              type: "uint8",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "getAllSchemas",
-          outputs: [
-            {
-              components: [
-                {
-                  internalType: "bytes32",
-                  name: "schemaName",
-                  type: "bytes32",
-                },
-                {
-                  internalType: "bytes32[]",
-                  name: "columns",
-                  type: "bytes32[]",
-                },
-                {
-                  internalType: "enum DataLayer.Category",
-                  name: "schemaCategory",
-                  type: "uint8",
-                },
-                {
-                  internalType: "uint256",
-                  name: "totalRecords",
-                  type: "uint256",
-                },
-              ],
-              internalType: "struct DataLayer.SchemaDetails[]",
-              name: "",
-              type: "tuple[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-          ],
-          name: "getAnalyticsDataBySchemaName",
-          outputs: [
-            {
-              internalType: "uint256[][]",
-              name: "",
-              type: "uint256[][]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-          ],
-          name: "getColumnsOfSchema",
-          outputs: [
-            {
-              internalType: "bytes32[]",
-              name: "",
-              type: "bytes32[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "address",
-              name: "userAddress",
-              type: "address",
-            },
-          ],
-          name: "getSchemaAddressToId",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "uint256",
-              name: "userId",
-              type: "uint256",
-            },
-          ],
-          name: "getSchemaIdToAddress",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "getUserActivityMatrix",
-          outputs: [
-            {
-              internalType: "uint256[][]",
-              name: "",
-              type: "uint256[][]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "idToAddress",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "latestIndex",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "owner",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "renounceOwnership",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "",
-              type: "bytes32",
-            },
-          ],
-          name: "schemaIndex",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "totalCategories",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "newOwner",
-              type: "address",
-            },
-          ],
-          name: "transferOwnership",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address payable",
-              name: "userAddress",
-              type: "address",
-            },
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "bytes32[]",
-              name: "columns",
-              type: "bytes32[]",
-            },
-            {
-              internalType: "uint256[]",
-              name: "data",
-              type: "uint256[]",
-            },
-          ],
-          name: "updateAnalytics",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "newReward",
-              type: "uint256",
-            },
-          ],
-          name: "updateUserReward",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "userActivityMatrix",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "userRewardPerDatapoint",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          stateMutability: "payable",
-          type: "receive",
-        },
-      ],
-      inheritedFunctions: {
-        owner: "@openzeppelin/contracts/access/Ownable.sol",
-        renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
-        transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
-      },
-    },
-    KNN: {
-      address: "0xECa5aEb36CB20Ba4c4346450cCeF53469906A511",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "contract DataLayer",
-              name: "_dataLayer",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "uint256[]",
-              name: "row",
-              type: "uint256[]",
-            },
-            {
-              internalType: "uint64",
-              name: "k",
-              type: "uint64",
-            },
-            {
-              internalType: "enum KNN.Distance",
-              name: "distance",
-              type: "uint8",
-            },
-          ],
-          name: "getKNN",
-          outputs: [
-            {
-              internalType: "uint256[][]",
-              name: "",
-              type: "uint256[][]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256[][]",
-              name: "analyticsData",
-              type: "uint256[][]",
-            },
-            {
-              internalType: "uint256[]",
-              name: "row",
-              type: "uint256[]",
-            },
-            {
-              internalType: "uint64",
-              name: "k",
-              type: "uint64",
-            },
-            {
-              internalType: "enum KNN.Distance",
-              name: "distance",
-              type: "uint8",
-            },
-          ],
-          name: "getKNNOffChainData",
-          outputs: [
-            {
-              internalType: "uint256[][]",
-              name: "",
-              type: "uint256[][]",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "userAddress",
-              type: "address",
-            },
-            {
-              internalType: "uint64",
-              name: "k",
-              type: "uint64",
-            },
-          ],
-          name: "getRecommendedSimilarUsers",
-          outputs: [
-            {
-              internalType: "address[][]",
-              name: "",
-              type: "address[][]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "userIndex",
-              type: "uint256",
-            },
-            {
-              internalType: "uint256[][]",
-              name: "similarityMatrix",
-              type: "uint256[][]",
-            },
-            {
-              internalType: "uint64",
-              name: "k",
-              type: "uint64",
-            },
-          ],
-          name: "recommend",
-          outputs: [
-            {
-              internalType: "address[][]",
-              name: "",
-              type: "address[][]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "totalCategories",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "userActivityMatrix",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    LinearRegression: {
-      address: "0x4C7D2d8BF916dE00d62a79c368b0F42884F0b53C",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "contract DataLayer",
-              name: "_dataLayer",
-              type: "address",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [
-            {
-              internalType: "int256[][]",
-              name: "X",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256[]",
-              name: "y",
-              type: "int256[]",
-            },
-            {
-              internalType: "int256",
-              name: "learningRate",
-              type: "int256",
-            },
-            {
-              internalType: "uint256",
-              name: "iterations",
-              type: "uint256",
-            },
-            {
-              internalType: "int256",
-              name: "bias",
-              type: "int256",
-            },
-          ],
-          name: "fit",
-          outputs: [
-            {
-              internalType: "int256[]",
-              name: "",
-              type: "int256[]",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "bytes32",
-              name: "schemaName",
-              type: "bytes32",
-            },
-            {
-              internalType: "uint256[]",
-              name: "trainingColIndices",
-              type: "uint256[]",
-            },
-            {
-              internalType: "uint256",
-              name: "labelColIndex",
-              type: "uint256",
-            },
-            {
-              internalType: "int256[][]",
-              name: "testData",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256",
-              name: "learningRate",
-              type: "int256",
-            },
-            {
-              internalType: "uint256",
-              name: "iterations",
-              type: "uint256",
-            },
-            {
-              internalType: "int256",
-              name: "bias",
-              type: "int256",
-            },
-          ],
-          name: "getLinearRegression",
-          outputs: [
-            {
-              internalType: "int256[]",
-              name: "",
-              type: "int256[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "int256[][]",
-              name: "analyticsData",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256[]",
-              name: "labels",
-              type: "int256[]",
-            },
-            {
-              internalType: "int256[][]",
-              name: "testData",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256",
-              name: "learningRate",
-              type: "int256",
-            },
-            {
-              internalType: "uint256",
-              name: "iterations",
-              type: "uint256",
-            },
-            {
-              internalType: "int256",
-              name: "bias",
-              type: "int256",
-            },
-          ],
-          name: "getLinearRegressionOffChainData",
-          outputs: [
-            {
-              internalType: "int256[]",
-              name: "",
-              type: "int256[]",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "int256[][]",
-              name: "X",
-              type: "int256[][]",
-            },
-            {
-              internalType: "int256",
-              name: "bias",
-              type: "int256",
-            },
-            {
-              internalType: "int256[]",
-              name: "weights",
-              type: "int256[]",
-            },
-          ],
-          name: "predict",
-          outputs: [
-            {
-              internalType: "int256[]",
-              name: "",
-              type: "int256[]",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    LogisticRegression: {
-      address: "0x2441883A4652526324B2D155f6C81c3DDC1Eb59f",
+      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
       abi: [
         {
           inputs: [

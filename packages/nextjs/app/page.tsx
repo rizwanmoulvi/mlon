@@ -5,7 +5,7 @@ import { CreateSchema } from "./_components/schema/CreateSchema";
 import { SchemaDetails } from "./_components/schema/SchemaDetails";
 import type { NextPage } from "next";
 import { Abi, WalletClient, createPublicClient, createWalletClient, getContract } from "viem";
-import { filecoinCalibration } from "viem/chains";
+import { opBNBTestnet } from "viem/chains";
 import { custom, http } from "wagmi";
 import deployedContracts from "~~/contracts/deployedContracts";
 
@@ -17,21 +17,21 @@ const Home: NextPage = () => {
     let walletClient: WalletClient;
     if (window.ethereum) {
       walletClient = createWalletClient({
-        chain: filecoinCalibration,
+        chain: opBNBTestnet,
         transport: custom(window.ethereum as any),
       });
     }
 
     const publicClient = createPublicClient({
-      chain: filecoinCalibration,
+      chain: opBNBTestnet,
       transport: http(),
     });
 
     const getSchemas = async () => {
       try {
         const userAnalyticsContractData = getContract({
-          abi: deployedContracts[314159].DataLayer.abi as Abi,
-          address: deployedContracts[314159].DataLayer.address,
+          abi: deployedContracts[5611].DataLayer.abi as Abi,
+          address: deployedContracts[5611].DataLayer.address,
           client: { public: publicClient, wallet: walletClient },
         });
         setOdl(userAnalyticsContractData);
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center">
-            <span className="block text-4xl font-bold heading">Filecoin ML Engine</span>
+            <span className="block text-4xl font-bold heading">MLON Engine</span>
             <span className="block text-2xl mb-2 des">Data Aggregation Layer</span>
             <div className="padding"></div>
           </h1>

@@ -15,7 +15,7 @@ import "hardhat-deploy-ethers";
 const providerApiKey = process.env.ALCHEMY_API_KEY || "oKxs-03sij-U_N0iOlrSsZFr29-IqbuF";
 // If not set, it uses the hardhat account 0 private key.
 const deployerPrivateKey =
-  process.env.DEPLOYER_PRIVATE_KEY ?? "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+  process.env.DEPLOYER_PRIVATE_KEY ?? "0x1f66427fe6c998b591cffa737fe1fa970eddfb310ef877ff7c5775daac900179";
 // If not set, it uses ours Etherscan default API key.
 const etherscanApiKey = process.env.ETHERSCAN_API_KEY || "DNXJA8RX2Q3VZ4URQIWP7Z68CJXQZSC6AW";
 
@@ -127,6 +127,18 @@ const config: HardhatUserConfig = {
     filecoinmainnet: {
       chainId: 314,
       url: "https://api.node.glif.io",
+      accounts: [deployerPrivateKey],
+    },
+    bsc: {
+      url: "https://bsc-dataseed.binance.org/", // BSC Mainnet RPC URL
+      accounts: [deployerPrivateKey], // Your private key
+    },
+    bscTestnet: {
+      url: "https://data-seed-prebsc-1-s1.binance.org:8545/", // BSC Testnet RPC URL
+      accounts: [deployerPrivateKey], // Your private key
+    },
+    opBNBTestnet: {
+      url: "https://opbnb-testnet-rpc.bnbchain.org/",
       accounts: [deployerPrivateKey],
     },
   },

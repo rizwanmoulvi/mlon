@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal } from "react";
 import { BackButton } from "../../_components";
 import { Abi, createPublicClient, fromHex, getContract, http } from "viem";
-import { filecoinCalibration } from "viem/chains";
+import { opBNBTestnet } from "viem/chains";
 import { Address } from "~~/components/scaffold-eth";
 import deployedContracts from "~~/contracts/deployedContracts";
 
@@ -31,15 +31,15 @@ const AddressPage = ({ params }: PageProps) => {
 
   useEffect(() => {
     const publicClient = createPublicClient({
-      chain: filecoinCalibration,
+      chain: opBNBTestnet,
       transport: http(),
     });
 
     const getSchemaData = async () => {
       try {
         const userAnalyticsContractData = getContract({
-          abi: deployedContracts[314159].DataLayer.abi as Abi,
-          address: deployedContracts[314159].DataLayer.address,
+          abi: deployedContracts[5611].DataLayer.abi as Abi,
+          address: deployedContracts[5611].DataLayer.address,
           client: { public: publicClient },
         });
 

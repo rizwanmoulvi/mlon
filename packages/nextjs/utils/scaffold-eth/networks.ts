@@ -81,6 +81,18 @@ export const NETWORKS_EXTRA_DATA: Record<string, ChainAttributes> = {
   [chains.scrollSepolia.id]: {
     color: "#fbebd4",
   },
+  [chains.bscTestnet.id]: {
+    color: "#f0b90b",
+  },
+  [chains.bsc.id]: {
+    color: "#f0b90b",
+  },
+  [chains.opBNBTestnet.id]: {
+    color: "#f0b90b",
+  },
+  [chains.opBNB.id]: {
+    color: "#f0b90b",
+  },
 };
 
 /**

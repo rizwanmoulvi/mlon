@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { Address, createPublicClient, http, toHex } from "viem";
-import { filecoinCalibration } from "viem/chains";
+import { opBNBTestnet } from "viem/chains";
 
 const publicClient = createPublicClient({
-  chain: filecoinCalibration,
+  chain: opBNBTestnet,
   transport: http(),
 });
 

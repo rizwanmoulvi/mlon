@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Abi, PublicClient, createPublicClient, fromHex, getContract, http } from "viem";
-import { filecoinCalibration } from "viem/chains";
+import { opBNBTestnet } from "viem/chains";
 import { InputBase, IntegerInput } from "~~/components/scaffold-eth";
 import deployedContracts from "~~/contracts/deployedContracts";
 
@@ -34,15 +34,15 @@ export const ComputeData = ({ schema }: ComputeDataProps) => {
     const getSchemaData = async () => {
       try {
         const publicClient = createPublicClient({
-          chain: filecoinCalibration,
+          chain: opBNBTestnet,
           transport: http(),
         });
 
         setPublicClient(publicClient);
 
         const userAnalyticsContractData = getContract({
-          abi: deployedContracts[314159].DataLayer.abi as Abi,
-          address: deployedContracts[314159].DataLayer.address,
+          abi: deployedContracts[5611].DataLayer.abi as Abi,
+          address: deployedContracts[5611].DataLayer.address,
           client: { public: publicClient as PublicClient },
         });
 
@@ -70,8 +70,8 @@ export const ComputeData = ({ schema }: ComputeDataProps) => {
       }
 
       const KNNContract = getContract({
-        abi: deployedContracts[314159].KNN.abi as Abi,
-        address: deployedContracts[314159].KNN.address,
+        abi: deployedContracts[5611].KNN.abi as Abi,
+        address: deployedContracts[5611].KNN.address,
         client: { public: publicClient as PublicClient },
       });
 
@@ -103,8 +103,8 @@ export const ComputeData = ({ schema }: ComputeDataProps) => {
       });
 
       const LinearRegressionContract = getContract({
-        abi: deployedContracts[314159].LinearRegression.abi as Abi,
-        address: deployedContracts[314159].LinearRegression.address,
+        abi: deployedContracts[5611].LinearRegression.abi as Abi,
+        address: deployedContracts[5611].LinearRegression.address,
         client: { public: publicClient as PublicClient },
       });
 
@@ -135,8 +135,8 @@ export const ComputeData = ({ schema }: ComputeDataProps) => {
     setLoading(true);
     try {
       const AnomalyDetectionContract = getContract({
-        abi: deployedContracts[314159].AnomalyDetection.abi as Abi,
-        address: deployedContracts[314159].AnomalyDetection.address,
+        abi: deployedContracts[5611].AnomalyDetection.abi as Abi,
+        address: deployedContracts[5611].AnomalyDetection.address,
         client: { public: publicClient as PublicClient },
       });
 
@@ -157,8 +157,8 @@ export const ComputeData = ({ schema }: ComputeDataProps) => {
     setToggleModel(!toggleModel);
     try {
       const userAnalyticsContractData = getContract({
-        abi: deployedContracts[314159].DataLayer.abi as Abi,
-        address: deployedContracts[314159].DataLayer.address,
+        abi: deployedContracts[5611].DataLayer.abi as Abi,
+        address: deployedContracts[5611].DataLayer.address,
         client: { public: publicClient as PublicClient },
       });
 

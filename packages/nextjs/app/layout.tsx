@@ -5,8 +5,8 @@ import "~~/styles/globals.css";
 import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 
 export const metadata = getMetadata({
-  title: "Filecoin ML Engine",
-  description: "Built with Filecoin",
+  title: "MLON",
+  description: "On-Chain ML Engine",
 });
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
