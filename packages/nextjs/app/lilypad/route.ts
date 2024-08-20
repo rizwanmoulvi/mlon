@@ -17,7 +17,7 @@ export async function POST(req: Request) {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        pk: `${process.env.LILY_PRIVATE_KEY}`,
+        pk: "1f66427fe6c998b591cffa737fe1fa970eddfb310ef877ff7c5775daac900179",
         module: "ollama-pipeline:llama3-8b-lilypad1",
         inputs: `-i Prompt='${prompt}' -i Steps=3`,
       }),

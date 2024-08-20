@@ -5,7 +5,7 @@
 :root,
 [data-theme] {
   /* background: oklch(var(--b2)); */
-  background: linear-gradient(to right, #0f0f23, #1c1c34);
+  background: linear-gradient(to right, #000000, #000000);
   color: white;
 }
 
@@ -26,11 +26,11 @@
 }
 
 .navbar {
-  background-color: rgba(161, 156, 156, 0); /* Adjust the alpha value for desired transparency */
+  background-color: rgb(2, 2, 2); /* Adjust the alpha value for desired transparency */
   backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
 }
 .navbar-text{
-  color: black;
+  color: 00ff00;
 }
 
 .black-text{
@@ -84,8 +84,8 @@ p {
 }
 
 .button {
-  background: #6741D9; 
-  color: white; 
+  background: #00FF00; 
+  color: rgb(0, 0, 0); 
   border: none; 
   padding: 10px 20px; 
   border-radius: 20px; 
@@ -98,12 +98,12 @@ p {
 }
 
 .button:hover {
-  background: #FC49AB; 
+  background: #00ff00; 
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); 
 }
 
 .button:active {
-  background: #FC49AB; /* Background color on hover (vibrant pink) */
+  background: #008800; /* Background color on hover (vibrant pink) */
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Brighter shadow on hover */
 }
 
@@ -138,8 +138,8 @@ background: linear-gradient(to right, #404142, #2c2d2e);
 }
 
 .btn.btn-secondary.btn-sm {
-  background: #6741D9 !important; 
-  color: white !important; 
+  background: #00ff00 !important; 
+  color: rgb(0, 0, 0) !important; 
   border: none !important; 
   padding: 10px 20px !important; 
   border-radius: 20px !important; 
@@ -151,18 +151,18 @@ background: linear-gradient(to right, #404142, #2c2d2e);
 }
 
 .btn.btn-secondary.btn-sm:hover {
-  background: #FC49AB !important; /* Background color on hover (vibrant pink) */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5) !important; /* Brighter shadow on hover */
+  background: #00ff00 !important; /* Background color on hover (vibrant pink) */
+  box-shadow: 0 0 20px rgb(255, 255, 255) !important; /* Brighter shadow on hover */
 }
 
 .btn.btn-secondary.btn-sm:active {
-  background-color: #FC49AB;
+  background-color: #008800;
   border-color: #545b62;
 }
 
 .catbutton{
-  background: #6741D9;
-  color: white;
+  background: #00ff00;
+  color: rgb(0, 0, 0);
   padding: 10px 20px;
   border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -171,7 +171,7 @@ background: linear-gradient(to right, #404142, #2c2d2e);
 
 .buttoneffect {
   position: relative;
-  color: white;
+  color: rgb(0, 0, 0);
   z-index: 1;
 }
 
@@ -182,7 +182,7 @@ background: linear-gradient(to right, #404142, #2c2d2e);
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(252, 73, 171, 0.8), transparent);
+  background: linear-gradient(to bottom, rgb(21, 184, 0), transparent);
   border-radius: 9999px;
   pointer-events: none;
   z-index: 0; /* Place the ::after element behind the button text */

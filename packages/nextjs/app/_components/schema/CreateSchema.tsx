@@ -70,34 +70,25 @@ export const CreateSchema = ({ odl }: CreateSchemaProps) => {
     <>
       <div>
         <div className="flex flex-col gap-3 py-5 first:pt-0 last:pb-1">
-          <p className="font-medium my-0 break-words">Schema Name</p>
+          <p className="font-medium my-0 break-words">Schema Name (String)</p>
           <div className="flex flex-col gap-1.5 w-full">
-            <div className="flex items-center ml-2">
-              <span className="block text-xs font-extralight leading-none">string</span>
-            </div>
             <InputBase name="schema name" placeholder="My Schema" value={schemaName} onChange={setSchemaName} />
           </div>
         </div>
         <div className="flex flex-col gap-3 py-5 first:pt-0 last:pb-1">
-          <p className="font-medium my-0 break-words">Total Columns</p>
+          <p className="font-medium my-0 break-words">Total Columns (Number)</p>
           <div className="flex flex-col gap-1.5 w-full">
-            <div className="flex items-center ml-2">
-              <span className="block text-xs font-extralight leading-none">number</span>
-            </div>
             <InputBase name="total columns" placeholder="0" value={totalCol} onChange={setTotalCol} />
           </div>
         </div>
         {parseInt(totalCol) > 0
           ? [...Array(parseInt(totalCol)).keys()].map(i => (
               <div className="flex flex-col gap-3 py-5 first:pt-0 last:pb-1" key={i}>
-                <p className="font-medium my-0 break-words">Column {i}</p>
+                <p className="font-medium my-0 break-words">Column {i} (String)</p>
                 <div className="flex flex-col gap-1.5 w-full">
-                  <div className="flex items-center ml-2">
-                    <span className="block text-xs font-extralight leading-none">string</span>
-                  </div>
                   <InputBase
                     name="total columns"
-                    placeholder="0"
+                    placeholder="Name"
                     value={col?.[i]}
                     onChange={(value: any) => {
                       setCol(cols => ({ ...cols, [i]: value }));

@@ -108,7 +108,7 @@ export const SchemaDetails = ({ schemaList, odl }: SchemaDetailsProps) => {
               }}
               // disabled={isFetching}
             >
-              Explore data 📡
+              View Data
             </button>
           </div>
           {txHash ? (
@@ -122,11 +122,8 @@ export const SchemaDetails = ({ schemaList, odl }: SchemaDetailsProps) => {
           {expandCol?.schemaName == i.schemaName && toggleCol == true
             ? i.columns.map(i => (
                 <div className="flex flex-col gap-3 py-5 first:pt-0 last:pb-1" key={i}>
-                  <p className="font-medium my-0 break-words">{fromHex(i, "string")}</p>
+                  <p className="font-medium my-0 break-words">{fromHex(i, "string")} (Number)</p>
                   <div className="flex flex-col gap-1.5 w-full">
-                    <div className="flex items-center ml-2">
-                      <span className="block text-xs font-extralight leading-none">number</span>
-                    </div>
                     <InputBase
                       name="total columns"
                       placeholder="0"
