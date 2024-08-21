@@ -48,15 +48,15 @@ export const DataTable = ({ schema }: DataTableProps) => {
   return (
     <div className="flex justify-center px-4 md:px-0">
       <div className="overflow-x-auto w-full shadow-2xl rounded-xl">
-        <table className="table text-xl bg-base-100 table-zebra w-full md:table-md table-sm">
+        <table className="table text-xl bg-black border border-mg table-zebra w-full md:table-md table-sm">
           <thead>
             <tr className="rounded-xl text-sm text-base-content">
-              <th className="bg-primary" key={2}>
+              <th className="bg-mg text-black text-xl" key={2}>
                 User ID
               </th>
               {columns?.map(i => (
                 <>
-                  <th className="bg-primary" key={i}>
+                  <th className="bg-mg text-black text-xl" key={i}>
                     {fromHex(i, "string")}
                   </th>
                 </>

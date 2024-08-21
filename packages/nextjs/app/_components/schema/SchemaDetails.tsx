@@ -68,7 +68,7 @@ export const SchemaDetails = ({ schemaList, odl }: SchemaDetailsProps) => {
     <>
       {schemaList?.map(i => (
         <div className="flex flex-col gap-3 py-5 first:pt-0 last:pb-1" key={i.schemaName}>
-          <p className="font-medium my-0 break-words">{fromHex(i.schemaName, "string")}</p>
+          <p className="font-bold my-0 break-words">Schema: {fromHex(i.schemaName, "string")}</p>
           <div className="flex-col gap-y-1">
             <div className="flex">
               <div className="font-small ">columns: </div>

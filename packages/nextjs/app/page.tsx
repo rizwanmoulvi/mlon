@@ -55,8 +55,37 @@ const Home: NextPage = () => {
           <h1 className="text-center">
             <span className="block text-9xl text-mg font-bold">MLON Engine</span>
             <span className="block text-4xl  mt-5 text-mg mb-2 font-bold">OnChain Machine Learning Engine</span>
-            <div className="padding"></div>
           </h1>
+          <div className="flex justify-center items-center w-full max-w-7xl mt-10 space-x-4">
+            <div className="bg-mg text-black p-5 rounded-lg flex-1 min-h-40">
+              <p>Data lake where the users contribute data and get incentivized onchain</p>
+            </div>
+            <div className="bg-mg text-black p-5 rounded-lg flex-1 min-h-40">
+              <p>
+                ML agent contracts - ML smart contracts directly pluggable into the onchain Data lake and are trained on
+                top of the Data lake schemas
+              </p>
+            </div>
+            <div className="bg-mg text-black p-5 rounded-lg flex-1 min-h-40">
+              <p>
+                Prediction engine - Once the ML models are trained they can be directly used for predictions on top of
+                onchain and off-chain data
+              </p>
+            </div>
+          </div>
+          <div>
+            <p className="flex items-center text-center text-mg text-2xl justify-center font-bold">
+              All these components combined create an end-to-end ML engine where the users can build ML agents dapps on
+              top of it.
+            </p>
+          </div>
+          <div className="flex justify-center text-mg text-4xl font-bold space-x-4">
+            <p>Collect</p>
+            <p>-</p>
+            <p>Extract</p>
+            <p>-</p>
+            <p>Compute</p>
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-10 w-full max-w-7xl">
           <div className="z-10">
@@ -69,7 +98,8 @@ const Home: NextPage = () => {
           </div>
           <div className="z-10">
             <div className="adafelbg bg-base-100 rounded-3xl  border-base-300 flex flex-col mt-10 relative"></div>
-            <div className="p-5 mt-10  divide-y divide-base-100 h-3/5 ">
+            <p className="text-5xl text-mg font-bold">Available Schema</p>
+            <div className="p-5 mt-10  divide-y divide-base-100 h-screen overflow-scroll ">
               {" "}
               {/*overflow-scroll*/}
               {/* Use only if required overflow-scroll */}

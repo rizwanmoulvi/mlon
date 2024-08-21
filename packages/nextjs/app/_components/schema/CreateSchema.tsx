@@ -8,7 +8,7 @@ type CreateSchemaProps = {
   odl: any;
 };
 export const CreateSchema = ({ odl }: CreateSchemaProps) => {
-  const [schemaName, setSchemaName] = useState("My Schema");
+  const [schemaName, setSchemaName] = useState("Schema Name");
   const [totalCol, setTotalCol] = useState("0");
   const [col, setCol] = useState<Record<number, string>>();
   const [selectedCategory, setSelectedCategory] = useState<number>();

@@ -14,14 +14,14 @@
   background: radial-gradient(circle, #4d004d, black);
 } */
 .adafelbg {
-  background: linear-gradient(to right, #404142, #1c1c34);
+  background: linear-gradient(to right, #000000, #000000);
   /* Starts at the top left (135 degrees) and goes to the bottom right  404142 */
   /* The purple (#6741D9) is centered but subtle, positioned at 50% */
 }
 
 
 .glossy-background {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+  background: linear-gradient(135deg, rgb(0, 0, 0), rgba(255, 255, 255, 0.2));
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -171,7 +171,9 @@ background: linear-gradient(to right, #404142, #2c2d2e);
 
 .buttoneffect {
   position: relative;
-  color: rgb(0, 0, 0);
+  color: #00ff00;
+  background: #000000;
+  border: 2px solid #00ff00;
   z-index: 1;
 }
 
@@ -182,24 +184,27 @@ background: linear-gradient(to right, #404142, #2c2d2e);
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgb(21, 184, 0), transparent);
+
+  border: 2px solid #00ff00;
   border-radius: 9999px;
+  color: #FFD700;
   pointer-events: none;
-  z-index: 0; /* Place the ::after element behind the button text */
+  z-index: 0;
 }
 .btn.selected {
-  background-color: #D3D3D3; /* Change this to your desired color */
+  background-color: #00ff00; /* Change this to your desired color */
   border-color: transparent;
   color: #000000; /* Optional: Change text color when selected */
 }
 
 .btn:not(.selected):hover {
-  background-color: #FFD700; /* Change this to your desired hover color */
+  background-color: #000000; /* Change this to your desired hover color */
   border-color: transparent;
+  color: #000000;
 }
 
 /* Optionally, you can add more styles for better visual feedback */
 .btn.selected:hover {
-  background-color: #C0C0C0; /* Change this to your desired hover color when selected */
+  background-color: #00ff00; /* Change this to your desired hover color when selected */
   border-color: transparent;
 }

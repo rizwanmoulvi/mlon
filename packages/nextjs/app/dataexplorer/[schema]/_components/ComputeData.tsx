@@ -593,13 +593,13 @@ export const ComputeData = ({ schema }: ComputeDataProps) => {
                 ) : null}
                 {anomalyDetections.length > 0 && show == "AnomalyDetection" ? (
                   <div className="overflow-x-auto w-full shadow-2xl rounded-xl">
-                    <p className="font-medium my-0 mb-5 break-words">Anomaly Detections</p>
-                    <table className="table text-xl bg-base-100 table-zebra w-full md:table-md table-sm">
+                    <p className="font-bold my-0 mb-5 break-words text-2xl">Anomaly Detections</p>
+                    <table className="table text-xl bg-black table-zebra w-full md:table-md table-sm">
                       <thead>
                         <tr className="rounded-xl text-sm text-base-content">
                           {columns?.map(i => (
                             <>
-                              <th className="bg-primary" key={i}>
+                              <th className="bg-mg text-black text-xl font-bold" key={i}>
                                 {fromHex(i, "string")}
                               </th>
                             </>

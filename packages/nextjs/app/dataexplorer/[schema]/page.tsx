@@ -18,7 +18,9 @@ const BlockExplorer: NextPage<PageProps> = ({ params }: PageProps) => {
   return (
     <div className="container mx-auto my-10">
       <h1 className="text-center">
-        <span className="block text-2xl mb-2 des">{fromHex(schemaName as `0x${string}`, "string")} Table</span>
+        <span className=" text-4xl mb-2 font-bold text-mg mb-5">
+          {fromHex(schemaName as `0x${string}`, "string")} Table
+        </span>
         {/* <div className="padding"></div> */}
       </h1>
       <div className="flex justify-center md:px-5 mb-5 gap-x-5">
